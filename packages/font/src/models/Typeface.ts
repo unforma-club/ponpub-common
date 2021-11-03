@@ -1,4 +1,5 @@
 import { Document, Schema, model, Model } from "mongoose";
+import { BaseTypeface } from "../types/typeface";
 
 interface TypefaceAttr {
     fileName: string;
@@ -6,6 +7,7 @@ interface TypefaceAttr {
     fileType: string;
     fileUrl: string;
     fileDestination: string;
+    typefaces: Array<BaseTypeface>;
 }
 
 interface TypefaceDoc extends Document<TypefaceAttr> {}
@@ -21,6 +23,7 @@ const typefaceSchema = new Schema(
         fileType: String,
         fileUrl: String,
         fileDestination: String,
+        typefaces: Object,
     },
     {
         toJSON: {
